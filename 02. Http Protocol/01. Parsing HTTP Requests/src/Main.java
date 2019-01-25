@@ -29,14 +29,12 @@ public class Main {
 
         while(!(input = reader.readLine()).equals("")) {
             String headerType = input.split("[: ]+")[0];
-            if(headerType.equals("Date")
-                    || headerType.equals("Host")
-                    || headerType.equals("Content-Type")) {
-                headers.add(input);
-            }
+
             if(headerType.equals("Authorization")) {
                 isAuthorized = true;
                 authorizationHeaderInfo = input.split("[:]+")[1];
+            } else {
+                headers.add(input);
             }
         }
 
